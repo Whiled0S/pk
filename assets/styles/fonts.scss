@@ -1,0 +1,75 @@
+// DESKTOP
+
+@mixin f-d-intro($weight: 500) {
+  font-weight: $weight;
+  font-size: 52px;
+  line-height: 60px;
+}
+
+@mixin f-d-h1($weight: 500) {
+  font-weight: $weight;
+  font-size: 36px;
+  line-height: 26px;
+}
+
+@mixin f-d-text($weight: 400) {
+  font-weight: $weight;
+  font-size: 20px;
+  line-height: 23px;
+}
+
+@mixin f-d-button($weight: 500) {
+  font-weight: $weight;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+@mixin f-d-input($weight: 400) {
+  font-weight: $weight;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+@mixin f-d-checkbox($weight: 400) {
+  font-weight: $weight;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+// MOBILE
+
+@mixin f-m-intro($weight: 500) {
+  font-weight: $weight;
+  font-size: 20px;
+  line-height: 23px;
+}
+
+@mixin f-m-h1($weight: 400) {
+  font-weight: $weight;
+  font-size: 17px;
+  line-height: 20px;
+}
+
+@mixin f-m-text($weight: 400) {
+  font-weight: $weight;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+@mixin f-m-button($weight: 400) {
+  font-weight: $weight;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+@mixin f-m-input($weight: 300) {
+  font-weight: $weight;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+@mixin f-m-checkbox($weight: 300) {
+  font-weight: $weight;
+  font-size: 8px;
+  line-height: 9px;
+}
