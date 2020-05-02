@@ -24,7 +24,8 @@ export default {
   ** Global CSS
   */
   css: [
-    'reset-css'
+    'reset-css',
+    '~assets/styles/global.scss'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -45,11 +46,15 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/svg',
-    '@nuxtjs/svg-sprite'
+    '@nuxtjs/svg-sprite',
+    '@nuxtjs/style-resources'
   ],
 
   styleResources: {
-    scss: '~assets/styles/*.scss'
+    scss: [
+      '~assets/styles/colors.scss',
+      '~assets/styles/fonts.scss'
+    ]
   },
   /*
   ** Axios module configuration
