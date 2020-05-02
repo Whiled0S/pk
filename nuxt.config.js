@@ -24,6 +24,7 @@ export default {
   ** Global CSS
   */
   css: [
+    'reset-css'
   ],
   /*
   ** Plugins to load before mounting the App
