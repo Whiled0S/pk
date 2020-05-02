@@ -25,8 +25,7 @@ export default {
 <style lang="scss" scoped>
   .index-request {
     position: relative;
-    min-height: 800px;
-    padding: 40px 0 50px;
+    padding: 40px 0 211px;
     background: $dark-blue;
 
     &::before,

@@ -6,7 +6,7 @@
       <nuxt />
     </div>
 
-    <Footer />
+    <Footer class="index-layout__footer" />
   </div>
 </template>
 
@@ -23,6 +23,7 @@ export default {
 
 <style lang="scss">
   .index-layout {
+    position: relative;
     min-height: 100%;
     display: flex;
     flex-direction: column;
@@ -37,6 +38,14 @@ export default {
     &__content {
       flex-grow: 1;
       min-height: auto;
+    }
+
+    &__footer {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 2;
     }
   }
 </style>

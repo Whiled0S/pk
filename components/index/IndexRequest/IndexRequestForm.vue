@@ -30,14 +30,27 @@
         rows="5"
       />
     </div>
+
+    <Checkbox class="index-request-form__agreement">
+      <p>
+        Настоящим даю свое согласие на обработку персональных данных в соответствии с<br>
+        <a target="_blank" href="/">Политикой конфиденциальности и обработки персональных данных.</a>
+      </p>
+    </Checkbox>
+
+    <Button class="index-request-form__submit" disabled>
+      Отправить
+    </Button>
   </form>
 </template>
 
 <script>
 import RequestInput from '../../core/RequestInput'
+import Checkbox from '../../core/Checkbox'
+import Button from '../../core/Button'
 export default {
   name: 'IndexRequestForm',
-  components: { RequestInput }
+  components: { Button, Checkbox, RequestInput }
 }
 </script>
 
@@ -50,6 +63,7 @@ export default {
       grid-template-columns: repeat(2, 1fr);
       grid-auto-flow: row;
       grid-gap: 30px;
+      margin-bottom: 25px;
     }
 
     &__inputs-name {
@@ -70,6 +84,20 @@ export default {
     &__inputs-message {
       grid-column: 1 / 3;
       grid-row: 3 / 4;
+    }
+
+    &__agreement {
+      @include f-d-checkbox;
+      color: $white;
+      margin-bottom: 40px;
+
+      a {
+        color: $light-blue;
+      }
+    }
+
+    &__submit {
+      width: 160px;
     }
   }
 </style>
