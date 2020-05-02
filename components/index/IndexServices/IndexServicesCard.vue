@@ -37,11 +37,13 @@ export default {
     text-align: left;
     color: $dark-blue;
     cursor: pointer;
+    transition: background-color .2s;
 
     $index-services-card: &;
 
     svg {
       fill: $dark-blue;
+      transition: fill .3s;
     }
 
     &:hover {

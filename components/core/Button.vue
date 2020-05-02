@@ -29,7 +29,7 @@ export default {
     cursor: pointer;
     outline: none;
     box-shadow: 0 0 0 0 rgba(0,123,255,.5);
-    transition: box-shadow .1s;
+    transition: box-shadow .1s, background-color .2s;
 
     &_disabled {
       opacity: .5;
