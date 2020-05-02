@@ -5,7 +5,7 @@
         Услуги
       </p>
 
-      <index-services-card-list>
+      <index-services-card-list class="index-services__list">
         <index-services-card icon="registration">
           Регистрация ООО/ИП<br>Внесение изменений<br>Ликвидация
         </index-services-card>
@@ -22,17 +22,22 @@
           Бухгалтерские услуги
         </index-services-card>
       </index-services-card-list>
+
+      <div class="index-services__button-container">
+        <Button>Оставить заявку</Button>
+      </div>
     </container>
   </div>
 </template>
 
 <script>
 import Container from '../../core/Container'
+import Button from '../../core/Button'
 import IndexServicesCardList from './IndexServicesCardList'
 import IndexServicesCard from './IndexServicesCard'
 export default {
   name: 'IndexServices',
-  components: { IndexServicesCard, IndexServicesCardList, Container }
+  components: { Button, IndexServicesCard, IndexServicesCardList, Container }
 }
 </script>
 
@@ -44,6 +49,14 @@ export default {
       @include f-d-h1;
       color: $dark-blue;
       margin-bottom: 30px;
+    }
+
+    &__list {
+      margin-bottom: 40px;
+    }
+
+    &__button-container {
+      text-align: center;
     }
   }
 </style>

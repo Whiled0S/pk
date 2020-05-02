@@ -27,6 +27,8 @@ export default {
 
 <style lang="scss" scoped>
   .index-services-card {
+    display: flex;
+    flex-direction: column;
     width: 100%;
     padding: 35px 21px 24px;
     border: 3px solid $dark-blue;
@@ -35,6 +37,8 @@ export default {
     text-align: left;
     color: $dark-blue;
     cursor: pointer;
+
+    $index-services-card: &;
 
     svg {
       fill: $dark-blue;
@@ -51,6 +55,10 @@ export default {
 
     &_centered {
       text-align: center;
+
+      #{$index-services-card}__text {
+        justify-content: center;
+      }
     }
 
     &__icon {
@@ -60,6 +68,9 @@ export default {
     }
 
     &__text {
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
       @include f-d-text;
     }
   }

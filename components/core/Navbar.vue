@@ -5,7 +5,7 @@
   >
     <div class="navbar__logo">
       <img
-        src="../../assets/images/logo.svg"
+        src="../../assets/images/logo.svg?data"
         alt="logo"
       >
     </div>
