@@ -3,14 +3,17 @@
     <index-intro />
 
     <index-services />
+
+    <index-request />
   </div>
 </template>
 
 <script>
 import IndexIntro from '../components/index/IndexIntro'
 import IndexServices from '../components/index/IndexServices/IndexServices'
+import IndexRequest from '../components/index/IndexRequest/IndexRequest'
 export default {
-  components: { IndexServices, IndexIntro },
+  components: { IndexRequest, IndexServices, IndexIntro },
   layout: 'index'
 }
 </script>
