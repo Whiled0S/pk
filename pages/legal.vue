@@ -1,13 +1,15 @@
 <template>
-  <div>INDEX</div>
+  <div class="legal">
+    legal
+  </div>
 </template>
 
 <script>
 export default {
-  layout: 'index'
+  name: 'Legal'
 }
 </script>
 
-<style>
+<style scoped>
 
 </style>
