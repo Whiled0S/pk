@@ -43,7 +43,23 @@ export default {
 
     &__title {
       @include f-d-intro;
+      display: block;
       color: $white;
+      animation: appear 1s ease-in-out forwards;
+      animation-delay: .3s;
+      opacity: 0;
+    }
+  }
+
+  @keyframes appear {
+    from {
+      opacity: 0;
+      transform: translateY(50%);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 </style>

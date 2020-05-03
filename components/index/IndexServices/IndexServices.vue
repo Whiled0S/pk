@@ -6,19 +6,19 @@
       </p>
 
       <index-services-card-list class="index-services__list">
-        <index-services-card icon="registration">
+        <index-services-card icon="registration" to="/registration">
           Регистрация ООО/ИП<br>Внесение изменений<br>Ликвидация
         </index-services-card>
 
-        <index-services-card icon="natural-person" text-center>
+        <index-services-card icon="natural-person" to="/physical" text-center>
           Физическим лицам
         </index-services-card>
 
-        <index-services-card icon="legal-entity" text-center>
+        <index-services-card icon="legal-entity" to="/legal" text-center>
           Юридическим лицам
         </index-services-card>
 
-        <index-services-card icon="accounting" text-center>
+        <index-services-card icon="accounting" to="/accounting" text-center>
           Бухгалтерские услуги
         </index-services-card>
       </index-services-card-list>

@@ -11,9 +11,26 @@
     </div>
 
     <ul class="navbar__menu">
-      <li>О компании</li>
-      <li>Услуги</li>
-      <li>Контакты</li>
+      <li v-if="main">
+        <nuxt-link to="/">
+          Главная
+        </nuxt-link>
+      </li>
+      <li>
+        <nuxt-link to="/company">
+          О компании
+        </nuxt-link>
+      </li>
+      <li>
+        <nuxt-link to="/services">
+          Услуги
+        </nuxt-link>
+      </li>
+      <li>
+        <nuxt-link to="/contacts">
+          Контакты
+        </nuxt-link>
+      </li>
     </ul>
 
     <span class="navbar__phone">+7 900 300-20-20</span>
@@ -24,7 +41,8 @@
 export default {
   name: 'Navbar',
   props: {
-    bottom: Boolean
+    bottom: Boolean,
+    main: Boolean
   }
 }
 </script>
@@ -57,8 +75,16 @@ export default {
       display: flex;
       @include f-d-text;
 
-      li:not(:last-child) {
-        margin-right: 30px;
+      li {
+
+        a {
+          color: inherit;
+          text-decoration: none;
+        }
+
+        &:not(:last-child) {
+          margin-right: 30px;
+        }
       }
     }
   }

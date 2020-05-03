@@ -1,15 +1,16 @@
 <!--suppress CssInvalidPropertyValue -->
 <template>
-  <div
+  <nuxt-link
     class="index-services-card"
     :class="{'index-services-card_centered': textCenter}"
+    :to="to"
   >
     <svg-icon class="index-services-card__icon" :name="icon" />
 
     <span class="index-services-card__text">
       <slot />
     </span>
-  </div>
+  </nuxt-link>
 </template>
 
 <script>
@@ -20,7 +21,11 @@ export default {
       type: String,
       default: String
     },
-    textCenter: Boolean
+    textCenter: Boolean,
+    to: {
+      type: String,
+      default: () => '/'
+    }
   }
 }
 </script>
@@ -35,6 +40,7 @@ export default {
     box-sizing: border-box;
     border-radius: 10px;
     text-align: left;
+    text-decoration: none;
     color: $dark-blue;
     cursor: pointer;
     transition: background-color .2s;

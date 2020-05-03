@@ -4,7 +4,7 @@
     :class="{ 'header_white': white }"
   >
     <container>
-      <navbar />
+      <navbar :main="main" />
     </container>
   </header>
 </template>
@@ -16,7 +16,8 @@ export default {
   name: 'Header',
   components: { Navbar, Container },
   props: {
-    white: Boolean
+    white: Boolean,
+    main: Boolean
   }
 }
 </script>
