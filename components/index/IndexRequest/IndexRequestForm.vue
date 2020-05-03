@@ -25,7 +25,7 @@
       <request-input
         class="index-request-form__inputs-message"
         icon="text"
-        placeholder="ФИО, наименование*"
+        placeholder="Введите сообщение"
         element="textarea"
         rows="5"
       />
@@ -92,7 +92,12 @@ export default {
       margin-bottom: 40px;
 
       a {
-        color: $light-blue;
+        color: $white;
+        transition: color .2s;
+
+        &:hover {
+          color: $light-blue;
+        }
       }
     }
 
