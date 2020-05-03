@@ -4,7 +4,7 @@
     :class="{ 'header_white': white }"
   >
     <container>
-      <navbar :main="main" />
+      <navbar :main="main" :dark-logo="white" />
     </container>
   </header>
 </template>

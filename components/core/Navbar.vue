@@ -4,10 +4,18 @@
     :class="{ 'navbar_bottom': bottom }"
   >
     <div class="navbar__logo">
-      <img
-        src="../../assets/images/logo.svg?data"
-        alt="logo"
-      >
+      <nuxt-link to="/">
+        <img
+          v-if="darkLogo"
+          src="../../assets/images/logo-dark.svg?data"
+          alt="logo"
+        >
+        <img
+          v-else
+          src="../../assets/images/logo.svg?data"
+          alt="logo"
+        >
+      </nuxt-link>
     </div>
 
     <ul class="navbar__menu">
@@ -42,7 +50,8 @@ export default {
   name: 'Navbar',
   props: {
     bottom: Boolean,
-    main: Boolean
+    main: Boolean,
+    darkLogo: Boolean
   }
 }
 </script>
