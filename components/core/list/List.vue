@@ -3,10 +3,9 @@
     <list-item
       v-for="(item, idx) in items"
       :key="idx"
+      :content="item"
       class="list__item"
-    >
-      {{ item }}
-    </list-item>
+    />
   </ul>
 </template>
 

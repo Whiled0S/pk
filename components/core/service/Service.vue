@@ -1,14 +1,16 @@
 <template>
   <div class="service">
-    <h1 class="service__header">
+    <component :is="headerTag" class="service__header">
       {{ header }}
-    </h1>
+    </component>
 
     <div class="service__content">
       <slot />
     </div>
 
-    <Button>Оставить заявку</Button>
+    <Button v-if="!noButton" class="service__request">
+      Оставить заявку
+    </Button>
   </div>
 </template>
 
@@ -21,7 +23,12 @@ export default {
     header: {
       type: String,
       default: 'Услуга'
-    }
+    },
+    headerTag: {
+      type: String,
+      default: 'h1'
+    },
+    noButton: Boolean
   }
 }
 </script>
@@ -35,8 +42,8 @@ export default {
       color: $dark-blue;
     }
 
-    &__content {
-      margin-bottom: 40px;
+    &__request {
+      margin-top: 40px;
     }
   }
 </style>

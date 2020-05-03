@@ -6,13 +6,19 @@
       alt="dash"
     >
 
-    <slot />
+    <span v-html="content" />
   </li>
 </template>
 
 <script>
 export default {
-  name: 'ListItem'
+  name: 'ListItem',
+  props: {
+    content: {
+      type: String,
+      default: String
+    }
+  }
 }
 </script>
 
