@@ -17,7 +17,8 @@
     "@nuxtjs/svg-sprite": "^0.4.10",
     "nodemailer": "^6.4.6",
     "nuxt": "^2.0.0",
-    "reset-css": "^5.0.1"
+    "reset-css": "^5.0.1",
+    "vue-scrollto": "^2.18.1"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^2.0.0",

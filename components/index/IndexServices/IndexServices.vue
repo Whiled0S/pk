@@ -24,7 +24,7 @@
       </index-services-card-list>
 
       <div class="index-services__button-container">
-        <Button>Оставить заявку</Button>
+        <ButtonRequest same-page />
       </div>
     </container>
   </div>
@@ -32,12 +32,12 @@
 
 <script>
 import Container from '../../core/Container'
-import Button from '../../core/Button'
+import ButtonRequest from '../../core/ButtonRequest'
 import IndexServicesCardList from './IndexServicesCardList'
 import IndexServicesCard from './IndexServicesCard'
 export default {
   name: 'IndexServices',
-  components: { Button, IndexServicesCard, IndexServicesCardList, Container }
+  components: { ButtonRequest, IndexServicesCard, IndexServicesCardList, Container }
 }
 </script>
 

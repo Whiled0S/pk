@@ -47,7 +47,8 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/svg',
     '@nuxtjs/svg-sprite',
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    'vue-scrollto/nuxt'
   ],
 
   styleResources: {

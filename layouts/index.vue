@@ -17,6 +17,7 @@
 import Header from '../components/core/limbs/Header'
 import Footer from '../components/core/limbs/Footer'
 export default {
+  name: 'IndexLayout',
   components: { Footer, Header }
 }
 </script>

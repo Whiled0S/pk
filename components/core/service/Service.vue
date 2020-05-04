@@ -8,17 +8,17 @@
       <slot />
     </div>
 
-    <Button v-if="!noButton" class="service__request">
+    <ButtonRequest v-if="!noButton" class="service__request">
       Оставить заявку
-    </Button>
+    </ButtonRequest>
   </div>
 </template>
 
 <script>
-import Button from '../Button'
+import ButtonRequest from '../ButtonRequest'
 export default {
   name: 'Service',
-  components: { Button },
+  components: { ButtonRequest },
   props: {
     header: {
       type: String,
@@ -43,6 +43,7 @@ export default {
     }
 
     &__request {
+      display: inline-block;
       margin-top: 40px;
     }
   }
