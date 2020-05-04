@@ -1,6 +1,6 @@
 const nodemailer = require('nodemailer')
 
-module.exports = function () {
+module.exports = function (req, res) {
   const transporter = nodemailer.createTransport({
     host: 'smtp.yandex.ru',
     port: 465,
@@ -27,5 +27,11 @@ module.exports = function () {
     subject: 'Hello world',
     text: 'Plaintext version of the message',
     html: '<p>Письмишко</p>'
+  }, (err, info) => {
+    if (err) {
+      res.status(500).send(err)
+    } else {
+      res.status(200).send(info)
+    }
   })
 }
