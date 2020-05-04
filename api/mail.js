@@ -1,3 +1,31 @@
-module.exports = function (req, res) {
-  res.send('Hello world')
+const nodemailer = require('nodemailer')
+
+module.exports = function () {
+  const transporter = nodemailer.createTransport({
+    host: 'smtp.yandex.ru',
+    port: 465,
+    secure: true,
+    auth: {
+      user: 'sender@ololocalhost.ru',
+      pass: '58901337Wh'
+    }
+  })
+
+  transporter.verify(function (error) {
+    if (error) {
+      // eslint-disable-next-line no-console
+      console.log(error)
+    } else {
+      // eslint-disable-next-line no-console
+      console.log('Server is ready')
+    }
+  })
+
+  transporter.sendMail({
+    from: 'sender@ololocalhost.ru',
+    to: 'mailer@ololocalhost.ru',
+    subject: 'Hello world',
+    text: 'Plaintext version of the message',
+    html: '<p>Письмишко</p>'
+  })
 }

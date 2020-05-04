@@ -15,6 +15,7 @@
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/style-resources": "^1.0.0",
     "@nuxtjs/svg-sprite": "^0.4.10",
+    "nodemailer": "^6.4.6",
     "nuxt": "^2.0.0",
     "reset-css": "^5.0.1"
   },
