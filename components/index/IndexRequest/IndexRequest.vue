@@ -1,5 +1,5 @@
 <template>
-  <div class="index-request">
+  <div id="index-request" class="index-request">
     <div class="index-request__gradient" />
     <container class="index-request__content">
       <p class="index-request__title">
