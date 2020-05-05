@@ -10,6 +10,7 @@
         <nuxt-link
           to="/"
           class="mobile-menu-content__menu-link"
+          @click.native="$store.commit('SET_MOBILE_MENU_STATUS', false)"
         >
           Главная
         </nuxt-link>
@@ -18,6 +19,7 @@
         <nuxt-link
           to="/company"
           class="mobile-menu-content__menu-link"
+          @click.native="$store.commit('SET_MOBILE_MENU_STATUS', false)"
         >
           O компании
         </nuxt-link>
@@ -26,6 +28,7 @@
         <nuxt-link
           to="/services"
           class="mobile-menu-content__menu-link"
+          @click.native="$store.commit('SET_MOBILE_MENU_STATUS', false)"
         >
           Услуги
         </nuxt-link>
@@ -34,6 +37,7 @@
         <nuxt-link
           to="/contacts"
           class="mobile-menu-content__menu-link"
+          @click.native="$store.commit('SET_MOBILE_MENU_STATUS', false)"
         >
           Контакты
         </nuxt-link>

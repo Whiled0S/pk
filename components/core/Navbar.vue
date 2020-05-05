@@ -93,8 +93,9 @@ export default {
 
       button {
         appearance: none;
-        border: none;
         background: transparent;
+        border: none;
+        outline: none;
       }
 
       @include respond-to($tablet) {

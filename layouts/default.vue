@@ -23,12 +23,7 @@ import FooterMini from '../components/core/limbs/FooterMini'
 import Container from '../components/core/Container'
 import MobileMenu from '../components/core/mobile-menu/MobileMenu'
 export default {
-  components: { MobileMenu, Container, FooterMini, Header },
-  watch: {
-    $route () {
-      this.$store.commit('SET_MOBILE_MENU_STATUS', false)
-    }
-  }
+  components: { MobileMenu, Container, FooterMini, Header }
 }
 </script>
 

@@ -21,12 +21,7 @@ import Footer from '../components/core/limbs/Footer'
 import MobileMenu from '../components/core/mobile-menu/MobileMenu'
 export default {
   name: 'IndexLayout',
-  components: { MobileMenu, Footer, Header },
-  watch: {
-    $route () {
-      this.$store.commit('SET_MOBILE_MENU_STATUS', false)
-    }
-  }
+  components: { MobileMenu, Footer, Header }
 }
 </script>
 
