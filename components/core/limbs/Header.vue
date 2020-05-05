@@ -29,9 +29,17 @@ export default {
     color: $white;
     z-index: 1;
 
+    @include respond-to($tablet) {
+      padding: 17px 0;
+    }
+
     &_white {
       color: $black;
       background: transparent;
+
+      @include respond-to($tablet) {
+        color: $dark-blue;
+      }
     }
   }
 </style>

@@ -23,6 +23,10 @@ export default {
     background-color: $dark-blue;
     background-image: url('../../assets/images/pattern.svg');
 
+    @include respond-to($tablet) {
+      height: 240px;
+    }
+
     &::after {
       content: '';
       position: absolute;
@@ -39,15 +43,26 @@ export default {
       height: 100%;
       padding-bottom: 70px;
       box-sizing: border-box;
+
+      @include respond-to($tablet) {
+        padding-bottom: 30px;
+      }
     }
 
     &__title {
+      position: relative;
       @include f-d-intro;
       display: block;
       color: $white;
       animation: appear 1s ease-in-out forwards;
       animation-delay: .3s;
       opacity: 0;
+
+      @include respond-to($tablet) {
+        @include f-m-intro;
+        text-align: center;
+        z-index: 1;
+      }
     }
   }
 

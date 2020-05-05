@@ -31,6 +31,12 @@ export default {
     box-shadow: 0 0 0 0 rgba(0,123,255,.5);
     transition: box-shadow .1s, background-color .2s;
 
+    @include respond-to($tablet) {
+      width: 100%;
+      padding: 13px 15px;
+      @include f-m-button;
+    }
+
     &_disabled {
       opacity: .5;
       pointer-events: none;

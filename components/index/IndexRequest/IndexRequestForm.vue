@@ -33,14 +33,12 @@
 
     <Checkbox class="index-request-form__agreement">
       <p>
-        Настоящим даю свое согласие на обработку персональных данных в соответствии с<br>
+        Настоящим даю свое согласие на обработку персональных данных в соответствии с<br class="desktop-only">
         <a target="_blank" href="/">Политикой конфиденциальности и обработки персональных данных.</a>
       </p>
     </Checkbox>
 
-    <Button class="index-request-form__submit" disabled>
-      Отправить
-    </Button>
+    <Button class="index-request-form__submit" disabled />
   </form>
 </template>
 
@@ -64,6 +62,10 @@ export default {
       grid-auto-flow: row;
       grid-gap: 30px;
       margin-bottom: 25px;
+
+      @include respond-to($tablet) {
+        grid-gap: 10px;
+      }
     }
 
     &__inputs-name {
@@ -74,22 +76,42 @@ export default {
     &__inputs-phone {
       grid-column: 1 / 2;
       grid-row: 2 / 3;
+
+      @include respond-to($tablet) {
+        grid-column: 1 / 3;
+        grid-row: 2 / 3;
+      }
     }
 
     &__inputs-email {
       grid-column: 2 / 3;
       grid-row: 2 / 3;
+
+      @include respond-to($tablet) {
+        grid-column: 1 / 3;
+        grid-row: 3 / 4;
+      }
     }
 
     &__inputs-message {
       grid-column: 1 / 3;
       grid-row: 3 / 4;
+
+      @include respond-to($tablet) {
+        grid-column: 1 / 3;
+        grid-row: 4 / 5;
+      }
     }
 
     &__agreement {
       @include f-d-checkbox;
       color: $white;
       margin-bottom: 40px;
+
+      @include respond-to($tablet) {
+        @include f-m-checkbox;
+        margin-bottom: 15px;
+      }
 
       a {
         color: $white;
@@ -103,6 +125,18 @@ export default {
 
     &__submit {
       width: 160px;
+
+      &::before {
+        content: 'Отправить';
+      }
+
+      @include respond-to($tablet) {
+        width: 100%;
+
+        &::before {
+          content: 'Оставить заявку';
+        }
+      }
     }
   }
 </style>

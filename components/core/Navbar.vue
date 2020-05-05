@@ -3,6 +3,19 @@
     class="navbar"
     :class="{ 'navbar_bottom': bottom }"
   >
+    <div class="navbar__burger">
+      <img
+        v-if="darkLogo"
+        src="../../assets/images/burger-dark.svg?data"
+        alt="menu"
+      >
+      <img
+        v-else
+        src="../../assets/images/burger.svg?data"
+        alt="menu"
+      >
+    </div>
+
     <div class="navbar__logo">
       <nuxt-link to="/">
         <img
@@ -66,23 +79,49 @@ export default {
       align-items: flex-end;
     }
 
+    &__burger {
+      display: none;
+      flex: 1;
+
+      @include respond-to($tablet) {
+        display: flex;
+      }
+    }
+
     &__logo {
       display: flex;
-      flex-grow: 1;
+      flex: 1;
       text-align: left;
+
+      @include respond-to($tablet) {
+        flex: unset;
+
+        img {
+          height: 30px;
+        }
+      }
     }
 
     &__phone {
-      flex-grow: 1;
+      flex: 1;
       font-weight: 500;
       font-size: 25px;
       line-height: 29px;
       text-align: right;
+
+      @include respond-to($tablet) {
+        font-size: 12px;
+        line-height: 14px;
+      }
     }
 
     &__menu {
       display: flex;
       @include f-d-text;
+
+      @include respond-to($tablet) {
+        display: none;
+      }
 
       li {
 

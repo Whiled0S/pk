@@ -28,6 +28,12 @@ export default {
     padding: 40px 0 211px;
     background: $dark-blue;
 
+    @include respond-to($tablet) {
+      padding: 20px 0 76px;
+      background-image: url('../../../assets/images/pattern.svg');
+      background-repeat: repeat;
+    }
+
     &::before,
     &::after {
       position: absolute;
@@ -35,6 +41,10 @@ export default {
       right: 0;
       top: 0;
       bottom: 0;
+
+      @include respond-to($tablet) {
+        display: none;
+      }
     }
 
     &::after {
@@ -58,6 +68,11 @@ export default {
       background: linear-gradient(90deg, rgba(77, 77, 153, 0) -1.28%, rgba(77, 77, 153, 0.7) 53.55%, rgba(77, 77, 153, 0.85) 100%);
       transform: matrix(-1, 0, 0, 1, 0, 0);
       z-index: 1;
+
+      @include respond-to($tablet) {
+        background-color: $dark-blue;
+        opacity: .5;
+      }
     }
 
     &__content {
@@ -69,10 +84,19 @@ export default {
       @include f-d-h1;
       color: $white;
       margin-bottom: 60px;
+
+      @include respond-to($tablet) {
+        @include f-m-h1;
+        margin-bottom: 15px;
+      }
     }
 
     &__form-container {
       width: 540px;
+
+      @include respond-to($tablet) {
+        width: 100%;
+      }
     }
   }
 </style>

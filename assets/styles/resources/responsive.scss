@@ -1,0 +1,9 @@
+$tablet: 960px;
+
+@mixin respond-to($media) {
+  @if $media == $tablet {
+    @media (max-width: $tablet ) {
+      @content;
+    }
+  }
+}

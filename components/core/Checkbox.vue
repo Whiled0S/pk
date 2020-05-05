@@ -53,6 +53,17 @@ export default {
       margin-right: 15px;
       transition: background-color .2s;
 
+      @include respond-to($tablet) {
+        width: 14px;
+        height: 14px;
+        margin-right: 6px;
+
+        svg {
+          width: 14px;
+          height: 14px;
+        }
+      }
+
       svg {
         opacity: 0;
         transition: opacity .2s;

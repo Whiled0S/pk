@@ -53,8 +53,7 @@ export default {
 
   styleResources: {
     scss: [
-      '~assets/styles/colors.scss',
-      '~assets/styles/fonts.scss'
+      '~assets/styles/resources/*.scss'
     ]
   },
   /*

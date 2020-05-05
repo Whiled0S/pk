@@ -21,3 +21,10 @@ body {
 .bold {
   font-weight: 500;
 }
+
+.desktop-only {
+
+  @include respond-to($tablet) {
+    display: none !important;
+  }
+}

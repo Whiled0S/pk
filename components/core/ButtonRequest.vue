@@ -1,6 +1,7 @@
 <template>
   <nuxt-link
     v-scroll-to="'#index-request'"
+    class="request-link"
     :to="{ path: '/', hash: samePage ? '' : '#index-request' }"
   >
     <Button>
@@ -32,6 +33,11 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+  .request-link {
 
+    @include respond-to($tablet) {
+      width: 100%;
+    }
+  }
 </style>

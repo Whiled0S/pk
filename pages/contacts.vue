@@ -11,7 +11,7 @@
       </div>
 
       <div class="contacts__info-col">
-        <span class="contacts__info-text contacts__info-text_nowrap">Общество с ограниченной ответственностью «ПК»</span>
+        <span class="contacts__info-text">Общество с ограниченной ответственностью «ПК»</span>
         <span class="contacts__info-text">«PK» LTD</span>
       </div>
 
@@ -40,32 +40,17 @@ export default {
     }
 
     &__info {
-      display: flex;
-      flex-direction: row;
+      display: grid;
+      grid-auto-flow: column;
+      grid-column-gap: 86px;
     }
 
     &__info-col {
 
-      &:first-child {
-        margin-right: 59px;
-        display: flex;
-        flex-direction: column;
-        flex-shrink: 0;
-      }
-
-      &:nth-child(2) {
-        margin-right: 64px;
-      }
-
-      &:last-child {
-        display: flex;
-        flex-direction: column;
-        flex-shrink: 0;
-      }
     }
 
     &__info-text {
-      display: inline-block;
+      display: block;
       @include f-d-text;
       color: $black;
 

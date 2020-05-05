@@ -44,6 +44,12 @@ export default {
     resize: vertical;
     box-sizing: border-box;
 
+    @include respond-to($tablet) {
+      min-height: 40px;
+      text-indent: 26px;
+      @include f-m-input;
+    }
+
     &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
       color: $light-blue;
       opacity: 1; /* Firefox */
@@ -71,6 +77,13 @@ export default {
         position: absolute;
         top: 14px;
         left: 14px;
+
+        @include respond-to($tablet) {
+          top: 12px;
+          left: 12px;
+          width: 16px;
+          height: 16px;
+        }
       }
     }
   }
