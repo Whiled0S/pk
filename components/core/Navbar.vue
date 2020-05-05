@@ -91,6 +91,10 @@ export default {
       display: none;
       flex: 1;
 
+      button {
+        appearance: none;
+      }
+
       @include respond-to($tablet) {
         display: flex;
       }
