@@ -54,10 +54,10 @@
       </li>
     </ul>
 
-    <span
+    <a
+      href="tel:+7 900 300-20-20"
       class="navbar__phone"
-      :class="{ 'navbar__phone_dark': darkLogo }"
-    >+7 900 300-20-20</span>
+    >+7 900 300-20-20</a>
   </div>
 </template>
 
@@ -111,7 +111,7 @@ export default {
       font-size: 25px;
       line-height: 29px;
       text-align: right;
-      color: $white;
+      color: inherit;
 
       @include respond-to($tablet) {
         font-size: 12px;

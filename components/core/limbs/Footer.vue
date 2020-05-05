@@ -6,7 +6,7 @@
       <div class="footer__tablet-nav">
         <img src="../../../assets/images/logo.svg" alt="logo">
 
-        <span>+7 900 300-20-20</span>
+        <a href="tel:+7 900 300-20-20">+7 900 300-20-20</a>
       </div>
     </container>
   </footer>
@@ -41,8 +41,8 @@ export default {
         height: 30px;
       }
 
-      span {
-        color: $white;
+      a {
+        color: inherit;
         @include f-m-text;
       }
 
