@@ -40,11 +40,19 @@ export default {
       margin-bottom: 30px;
       @include f-d-h1;
       color: $dark-blue;
+
+      @include respond-to($tablet) {
+        @include f-m-h1;
+      }
     }
 
     &__request {
       display: inline-block;
       margin-top: 40px;
+
+      @include respond-to($tablet) {
+        margin-top: 25px;
+      }
     }
   }
 </style>

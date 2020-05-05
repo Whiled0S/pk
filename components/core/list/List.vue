@@ -31,6 +31,10 @@ export default {
 
     &__item:not(:last-child) {
       margin-bottom: 25px;
+
+      @include respond-to($tablet) {
+        margin-bottom: 15px;
+      }
     }
   }
 </style>

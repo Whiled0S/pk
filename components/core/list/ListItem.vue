@@ -30,8 +30,17 @@ export default {
     @include f-d-text;
     color: $black;
 
+    @include respond-to($tablet) {
+      @include f-m-text;
+    }
+
     &__dash {
       margin-right: 15px;
+
+      @include respond-to($tablet) {
+        width: 10px;
+        margin-right: 10px;
+      }
     }
   }
 </style>

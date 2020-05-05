@@ -29,7 +29,15 @@ body {
   }
 }
 
+.tablet-only {
+  display: none !important;
+
+  @include respond-to($tablet) {
+    display: initial !important;
+  }
+}
+
 a[href^=tel] {
-  text-decoration: inherit;
+  text-decoration: underline;
   color: inherit;
 }

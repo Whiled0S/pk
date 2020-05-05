@@ -22,9 +22,18 @@ export default {
     padding: 40px 0;
     background-color: $dark-blue;
 
+    @include respond-to($tablet) {
+      padding: 15px 0;
+    }
+
     &__text {
       @include f-d-text;
       color: $white;
+
+      @include respond-to($tablet) {
+        font-size: 12px;
+        line-height: 26px;
+      }
     }
   }
 </style>

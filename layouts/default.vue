@@ -33,6 +33,10 @@ export default {
     &__content {
       padding: 60px 0;
       flex-grow: 1;
+
+      @include respond-to($tablet) {
+        padding: 20px 0 40px;
+      }
     }
   }
 </style>

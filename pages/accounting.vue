@@ -1,9 +1,11 @@
 <template>
   <service header="Бухгалтерские услуги">
     <div class="accounting__services">
-      <list :items="services[0]" />
+      <list class="desktop-only" :items="services[0]" />
 
-      <list :items="services[1]" />
+      <list class="desktop-only" :items="services[1]" />
+
+      <list class="tablet-only" :items="services.flat()" />
     </div>
   </service>
 </template>
@@ -40,6 +42,10 @@ export default {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       grid-column-gap: 15px;
+
+      @include respond-to($tablet) {
+        grid-template-columns: 1fr;
+      }
     }
   }
 </style>
