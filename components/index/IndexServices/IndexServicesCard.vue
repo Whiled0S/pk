@@ -49,7 +49,8 @@ export default {
     transition: background-color .2s;
 
     @include respond-to($tablet) {
-      padding: 28px 22px 28px 36px;
+      padding: 28px 22px 28px 38px;
+      border-width: 2px;
       flex-direction: row;
       justify-content: center;
       align-items: center;

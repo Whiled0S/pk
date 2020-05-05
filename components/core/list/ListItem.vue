@@ -31,7 +31,7 @@ export default {
     color: $black;
 
     @include respond-to($tablet) {
-      @include f-m-text;
+      @include f-m-text(300);
     }
 
     &__dash {

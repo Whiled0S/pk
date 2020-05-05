@@ -9,6 +9,8 @@
     </div>
 
     <footer-mini />
+
+    <mobile-menu />
   </div>
 </template>
 
@@ -19,8 +21,14 @@
 import Header from '../components/core/limbs/Header'
 import FooterMini from '../components/core/limbs/FooterMini'
 import Container from '../components/core/Container'
+import MobileMenu from '../components/core/mobile-menu/MobileMenu'
 export default {
-  components: { Container, FooterMini, Header }
+  components: { MobileMenu, Container, FooterMini, Header },
+  watch: {
+    $route () {
+      this.$store.commit('SET_MOBILE_MENU_STATUS', false)
+    }
+  }
 }
 </script>
 

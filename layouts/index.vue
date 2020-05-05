@@ -7,6 +7,8 @@
     </div>
 
     <Footer class="index-layout__footer" />
+
+    <mobile-menu />
   </div>
 </template>
 
@@ -16,9 +18,15 @@
 <script>
 import Header from '../components/core/limbs/Header'
 import Footer from '../components/core/limbs/Footer'
+import MobileMenu from '../components/core/mobile-menu/MobileMenu'
 export default {
   name: 'IndexLayout',
-  components: { Footer, Header }
+  components: { MobileMenu, Footer, Header },
+  watch: {
+    $route () {
+      this.$store.commit('SET_MOBILE_MENU_STATUS', false)
+    }
+  }
 }
 </script>
 

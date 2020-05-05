@@ -3,17 +3,22 @@
     class="navbar"
     :class="{ 'navbar_bottom': bottom }"
   >
-    <div class="navbar__burger">
-      <img
-        v-if="darkLogo"
-        src="../../assets/images/burger-dark.svg?data"
-        alt="menu"
-      >
-      <img
-        v-else
-        src="../../assets/images/burger.svg?data"
-        alt="menu"
-      >
+    <div
+      class="navbar__burger"
+      @click="$store.commit('SET_MOBILE_MENU_STATUS', true)"
+    >
+      <button>
+        <img
+          v-if="darkLogo"
+          src="../../assets/images/burger-dark.svg?data"
+          alt="menu"
+        >
+        <img
+          v-else
+          src="../../assets/images/burger.svg?data"
+          alt="menu"
+        >
+      </button>
     </div>
 
     <div class="navbar__logo">

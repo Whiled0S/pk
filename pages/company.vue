@@ -33,12 +33,22 @@ export default {
       @include f-d-h1;
       color: $dark-blue;
       margin-bottom: 24px;
+
+      @include respond-to($tablet) {
+        @include f-m-h1;
+        margin-bottom: 20px;
+      }
     }
 
     &__info {
       @include f-d-text;
       line-height: 1.3;
       color: $black;
+
+      @include respond-to($tablet) {
+        @include f-m-text(300);
+        line-height: 1.3;
+      }
     }
   }
 </style>

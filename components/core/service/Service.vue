@@ -43,6 +43,7 @@ export default {
 
       @include respond-to($tablet) {
         @include f-m-h1;
+        margin-bottom: 20px;
       }
     }
 

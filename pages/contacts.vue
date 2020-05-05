@@ -1,6 +1,6 @@
 <template>
   <div class="contacts">
-    <h1 class="contacts__header">
+    <h1 class="contacts__title">
       Контакты
     </h1>
 
@@ -33,20 +33,36 @@ export default {
 <style lang="scss" scoped>
   .contacts {
 
-    &__header {
+    &__title {
       margin-bottom: 30px;
       @include f-d-h1;
       color: $dark-blue;
+
+      @include respond-to($tablet) {
+        @include f-m-h1;
+        margin-bottom: 20px;
+      }
     }
 
     &__info {
       display: grid;
       grid-auto-flow: column;
       grid-column-gap: 86px;
+
+      @include respond-to($tablet) {
+        grid-template-columns: 1fr;
+        grid-auto-flow: row;
+      }
     }
 
     &__info-col {
 
+      @include respond-to($tablet) {
+
+        &:not(:last-child) {
+          margin-bottom: 15px;
+        }
+      }
     }
 
     &__info-text {
@@ -56,6 +72,10 @@ export default {
 
       &:not(:last-child) {
         margin-bottom: 15px;
+      }
+
+      @include respond-to($tablet) {
+        @include f-m-text(300);
       }
 
       &_nowrap {

@@ -20,6 +20,10 @@ body {
 
 .bold {
   font-weight: 500;
+
+  @include respond-to($tablet) {
+    font-weight: 400;
+  }
 }
 
 .desktop-only {
