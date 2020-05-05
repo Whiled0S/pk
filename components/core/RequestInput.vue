@@ -43,6 +43,7 @@ export default {
     transition: box-shadow .2s, border-color .2s;
     resize: vertical;
     box-sizing: border-box;
+    -webkit-appearance: none;
 
     @include respond-to($tablet) {
       min-height: 40px;
