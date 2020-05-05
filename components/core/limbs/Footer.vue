@@ -42,6 +42,7 @@ export default {
       }
 
       span {
+        color: inherit;
         @include f-m-text;
       }
 

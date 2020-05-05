@@ -108,6 +108,7 @@ export default {
       font-size: 25px;
       line-height: 29px;
       text-align: right;
+      color: inherit;
 
       @include respond-to($tablet) {
         font-size: 12px;
