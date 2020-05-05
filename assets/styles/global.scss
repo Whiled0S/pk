@@ -41,6 +41,12 @@ body {
   }
 }
 
+.noscroll {
+  position: fixed;
+  overflow-y: scroll;
+  width: 100%;
+}
+
 a[href^=tel] {
   text-decoration: underline;
   color: inherit;

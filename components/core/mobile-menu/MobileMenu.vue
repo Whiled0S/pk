@@ -1,5 +1,5 @@
 <template>
-  <div class="mobile-menu" @wheel.prevent>
+  <div class="mobile-menu">
     <div
       v-show="showMobileMenu"
       class="mobile-menu__backdrop"
