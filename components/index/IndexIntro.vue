@@ -19,7 +19,7 @@ export default {
 <style lang="scss" scoped>
   .index-intro {
     position: relative;
-    height: 100vh;
+    height: 410px;
     background-color: $dark-blue;
     background-image: url('../../assets/images/pattern.svg');
 

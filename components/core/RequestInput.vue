@@ -2,6 +2,7 @@
   <label class="request-input__label">
     <component
       :is="element"
+      v-mask="phone ? { mask: '+7 (999) 999-99-99', showMaskOnHover: false } : ''"
       class="request-input"
       v-bind="$attrs"
       v-on="$listeners"
@@ -22,7 +23,8 @@ export default {
     element: {
       type: String,
       default: 'input'
-    }
+    },
+    phone: Boolean
   }
 }
 </script>
@@ -31,8 +33,7 @@ export default {
   .request-input {
     width: 100%;
     min-height: 50px;
-    padding: 11px;
-    text-indent: 34px;
+    padding: 11px 11px 11px 45px;
     @include f-d-input;
     outline: none;
     border: 1px solid $blue;
@@ -47,7 +48,7 @@ export default {
 
     @include respond-to($tablet) {
       min-height: 40px;
-      text-indent: 26px;
+      padding: 11px 11px 11px 37px;
       @include f-m-input;
     }
 

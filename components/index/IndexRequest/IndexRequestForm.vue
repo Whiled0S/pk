@@ -11,9 +11,12 @@
       />
 
       <request-input
+        :value="phone"
         class="index-request-form__inputs-phone"
         icon="phone"
+        phone
         placeholder="Введите ваш телефон*"
+        @input="phone = ($event.target.value.match(/\d/g) || []).join('')"
       />
 
       <request-input
@@ -48,7 +51,12 @@ import Checkbox from '../../core/Checkbox'
 import Button from '../../core/Button'
 export default {
   name: 'IndexRequestForm',
-  components: { Button, Checkbox, RequestInput }
+  components: { Button, Checkbox, RequestInput },
+  data () {
+    return {
+      phone: ''
+    }
+  }
 }
 </script>
 
