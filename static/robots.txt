@@ -1,0 +1,7 @@
+User-agent: *
+Disallow:
+Sitemap: https://pravo-kons.ru/sitemap.xml
+
+User-agent: Yandex
+Disallow:
+Sitemap: https://pravo-kons.ru/sitemap.xml

@@ -21,7 +21,22 @@ import Footer from '../components/core/limbs/Footer'
 import MobileMenu from '../components/core/mobile-menu/MobileMenu'
 export default {
   name: 'IndexLayout',
-  components: { MobileMenu, Footer, Header }
+  components: { MobileMenu, Footer, Header },
+  head () {
+    return {
+      link: [
+        { rel: 'canonical', href: `https://pravo-kons.ru${this.$route.path}` }
+      ],
+      meta: [
+        { hid: 'og:site_name', property: 'og:site_name', content: 'ООО "ПК"' },
+        { hid: 'og:title', property: 'og:title', content: 'ООО "ПК"' },
+        { hid: 'og:description', property: 'og:description', content: 'Аутсорсинг бухгалтерии юридических услуг' },
+        { hid: 'og:type', property: 'og:type', content: 'website' },
+        { hid: 'og:url', property: 'og:url', content: `https://pravo-kons.ru${this.$route.path}` },
+        { hid: 'og:image', property: 'og:image', content: 'https://pravo-kons.ru/logo.jpg' }
+      ]
+    }
+  }
 }
 </script>
 

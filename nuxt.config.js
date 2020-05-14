@@ -5,11 +5,12 @@ export default {
   ** Headers of the page
   */
   head: {
-    title: 'ООО "ПК"',
+    htmlAttrs: { lang: 'ru' },
+    title: 'ООО "ПК" – Аутсорсинг бухгалтерии юридических услуг',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
+      { hid: 'description', name: 'description', content: 'Аутсорсинг бухгалтерии юридических услуг' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -49,8 +50,13 @@ export default {
     '@nuxtjs/svg',
     '@nuxtjs/svg-sprite',
     '@nuxtjs/style-resources',
+    '@nuxtjs/sitemap',
     'vue-scrollto/nuxt'
   ],
+
+  sitemap: {
+    hostname: 'https://pravo-kons.ru'
+  },
 
   styleResources: {
     scss: [
