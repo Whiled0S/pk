@@ -10,7 +10,8 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Аутсорсинг бухгалтерии юридических услуг' }
+      { hid: 'description', name: 'description', content: 'Аутсорсинг бухгалтерии юридических услуг' },
+      { name: 'yandex-verification', content: 'cac1422c6501b9f9' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
