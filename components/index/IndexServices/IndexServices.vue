@@ -1,9 +1,9 @@
 <template>
   <div class="index-services">
     <container>
-      <p class="index-services__title">
+      <h2 class="index-services__title">
         Услуги
-      </p>
+      </h2>
 
       <index-services-card-list class="index-services__list">
         <index-services-card

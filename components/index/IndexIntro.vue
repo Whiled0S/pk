@@ -2,7 +2,9 @@
   <div class="index-intro">
     <div class="index-intro__content">
       <container>
-        <span class="index-intro__title">Аутсорсинг бухгалтерии<br>юридических услуг</span>
+        <h1 class="index-intro__title">
+          Аутсорсинг бухгалтерии<br>юридических услуг
+        </h1>
       </container>
     </div>
   </div>

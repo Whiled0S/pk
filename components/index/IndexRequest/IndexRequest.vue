@@ -2,9 +2,9 @@
   <div id="index-request" class="index-request">
     <div class="index-request__gradient" />
     <container class="index-request__content">
-      <p class="index-request__title">
+      <h2 class="index-request__title">
         Заявка
-      </p>
+      </h2>
 
       <div class="index-request__form-container">
         <index-request-form />
