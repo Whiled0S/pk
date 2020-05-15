@@ -1,8 +1,8 @@
 // const nodemailer = require('nodemailer')
 
-module.exports = function (req, res) {
+module.exports = (req, res) => {
   // eslint-disable-next-line no-console
-  console.log(req.body)
+  console.log(req.body, req.method)
   res.status(200).json(req.body)
   // const transporter = nodemailer.createTransport({
   //   host: 'smtp.yandex.ru',
