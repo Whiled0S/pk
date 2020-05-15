@@ -1,7 +1,7 @@
 // const nodemailer = require('nodemailer')
 
 module.exports = function (req, res) {
-  res.status(200).send(req.body)
+  res.status(200).send(JSON.stringify(req.body))
   // const transporter = nodemailer.createTransport({
   //   host: 'smtp.yandex.ru',
   //   port: 465,
