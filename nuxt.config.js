@@ -69,7 +69,8 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
-    proxy: process.env.NODE_ENV === 'development'
+    proxy: process.env.NODE_ENV === 'development',
+    baseURL: process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://ololocalhost.ru'
   },
 
   proxy: {
