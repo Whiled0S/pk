@@ -69,11 +69,10 @@ export default {
   },
   methods: {
     sendRequest () {
-      this.$axios.post('/api/mail', {
+      this.$axios.post('/api/mail', this.payload, {
         headers: {
           'Content-Type': 'application/json'
-        },
-        body: this.payload
+        }
       })
     }
   }
