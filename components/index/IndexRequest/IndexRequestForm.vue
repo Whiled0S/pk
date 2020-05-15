@@ -1,31 +1,33 @@
 <template>
   <form
     class="index-request-form"
-    @submit.prevent
+    @submit.prevent="sendRequest"
   >
     <div class="index-request-form__inputs">
       <request-input
+        v-model="payload.name"
         class="index-request-form__inputs-name"
         icon="person"
         placeholder="ФИО, наименование*"
       />
 
       <request-input
-        :value="phone"
+        v-model="payload.phone"
         class="index-request-form__inputs-phone"
         icon="phone"
         phone
         placeholder="Введите ваш телефон*"
-        @input="phone = ($event.target.value.match(/\d/g) || []).join('')"
       />
 
       <request-input
+        v-model="payload.email"
         class="index-request-form__inputs-email"
         icon="mail"
         placeholder="Введите ваш e-mail"
       />
 
       <request-input
+        v-model="payload.message"
         class="index-request-form__inputs-message"
         icon="text"
         placeholder="Введите сообщение"
@@ -41,7 +43,10 @@
       </p>
     </Checkbox>
 
-    <Button class="index-request-form__submit" disabled />
+    <Button
+      class="index-request-form__submit"
+      :disabled="!payload.name.length || !payload.phone.length"
+    />
   </form>
 </template>
 
@@ -54,7 +59,17 @@ export default {
   components: { Button, Checkbox, RequestInput },
   data () {
     return {
-      phone: ''
+      payload: {
+        name: '',
+        email: '',
+        phone: '',
+        message: ''
+      }
+    }
+  },
+  methods: {
+    sendRequest () {
+      this.$axios.post('/api/mail', this.payload)
     }
   }
 }

@@ -5,7 +5,7 @@
       v-mask="phone ? { mask: '+7 (999) 999-99-99', showMaskOnHover: false } : ''"
       class="request-input"
       v-bind="$attrs"
-      v-on="$listeners"
+      v-on="listeners"
     />
 
     <svg-icon width="22" height="22" :name="icon" />
@@ -25,6 +25,20 @@ export default {
       default: 'input'
     },
     phone: Boolean
+  },
+  computed: {
+    listeners () {
+      return Object.assign({},
+        this.$listeners,
+        {
+          input: (event) => {
+            this.$emit('input', this.phone
+              ? (event.target.value.match(/[\d+]/g) || []).join('').replace('+7', '8')
+              : event.target.value)
+          }
+        }
+      )
+    }
   }
 }
 </script>
