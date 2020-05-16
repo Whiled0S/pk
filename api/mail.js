@@ -5,7 +5,7 @@ module.exports = (req, res) => {
 
   try {
     const transporter = nodemailer.createTransport({
-      host: 'smtp.yandex.com',
+      host: 'smtp.yandex.com.tr',
       port: 465,
       secure: true,
       auth: {
