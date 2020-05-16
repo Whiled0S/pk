@@ -33,7 +33,9 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '~plugins/vuemask.client'
+    '~plugins/vuemask.client',
+    '~plugins/toasted.client',
+    '~plugins/promised'
   ],
   /*
   ** Nuxt.js dev-modules

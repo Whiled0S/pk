@@ -4,7 +4,7 @@
       class="checkbox"
       type="checkbox"
       v-bind="$attrs"
-      v-on="$listeners"
+      v-on="listeners"
     >
 
     <span class="checkbox__checker">
@@ -17,7 +17,23 @@
 
 <script>
 export default {
-  name: 'Checkbox'
+  name: 'Checkbox',
+  inheritAttrs: false,
+  model: {
+    prop: 'checked'
+  },
+  computed: {
+    listeners () {
+      return Object.assign({},
+        this.$listeners,
+        {
+          input: (event) => {
+            this.$emit('input', event.target.checked)
+          }
+        }
+      )
+    }
+  }
 }
 </script>
 

@@ -1,79 +1,132 @@
 <template>
-  <form
-    class="index-request-form"
-    @submit.prevent="sendRequest"
+  <promised
+    #combined="{ isPending: loading, error: errors }"
+    :promise="requestPromise"
   >
-    <div class="index-request-form__inputs">
-      <request-input
-        v-model="payload.name"
-        class="index-request-form__inputs-name"
-        icon="person"
-        placeholder="ФИО, наименование*"
+    <form
+      class="index-request-form"
+      @submit.prevent="sendRequest"
+    >
+      <div class="index-request-form__inputs">
+        <request-input
+          v-model="payload.name"
+          class="index-request-form__inputs-name"
+          placeholder="ФИО, наименование*"
+          type="text"
+          icon="person"
+          :disabled="loading"
+          :error="errors ? errors.name : null"
+        />
+
+        <request-input
+          v-model="phone"
+          mask="+7 (999) 999-99-99"
+          class="index-request-form__inputs-phone"
+          placeholder="Введите ваш телефон*"
+          type="text"
+          icon="phone"
+          :disabled="loading"
+          :error="errors ? errors.phone : null"
+        />
+
+        <request-input
+          v-model="payload.email"
+          class="index-request-form__inputs-email"
+          icon="mail"
+          placeholder="Введите ваш e-mail"
+          type="text"
+          :disabled="loading"
+          :error="errors ? errors.email : null"
+        />
+
+        <request-input
+          v-model="payload.message"
+          class="index-request-form__inputs-message"
+          icon="text"
+          placeholder="Введите сообщение"
+          rows="5"
+          :disabled="loading"
+          textarea
+        />
+      </div>
+
+      <Checkbox
+        v-model="payload.agreement"
+        class="index-request-form__agreement"
+      >
+        <p>
+          Настоящим даю свое согласие на обработку персональных данных в соответствии с<br class="desktop-only">
+          <a target="_blank" href="/">Политикой конфиденциальности и обработки персональных данных.</a>
+        </p>
+      </Checkbox>
+
+      <Button
+        class="index-request-form__submit"
+        :disabled="!payload.name.length || !payload.phone.length || loading || !payload.agreement"
       />
-
-      <request-input
-        v-model="payload.phone"
-        class="index-request-form__inputs-phone"
-        icon="phone"
-        phone
-        placeholder="Введите ваш телефон*"
-      />
-
-      <request-input
-        v-model="payload.email"
-        class="index-request-form__inputs-email"
-        icon="mail"
-        placeholder="Введите ваш e-mail"
-      />
-
-      <request-input
-        v-model="payload.message"
-        class="index-request-form__inputs-message"
-        icon="text"
-        placeholder="Введите сообщение"
-        element="textarea"
-        rows="5"
-      />
-    </div>
-
-    <Checkbox class="index-request-form__agreement">
-      <p>
-        Настоящим даю свое согласие на обработку персональных данных в соответствии с<br class="desktop-only">
-        <a target="_blank" href="/">Политикой конфиденциальности и обработки персональных данных.</a>
-      </p>
-    </Checkbox>
-
-    <Button
-      class="index-request-form__submit"
-      :disabled="!payload.name.length || !payload.phone.length"
-    />
-  </form>
+    </form>
+  </promised>
 </template>
 
 <script>
 import RequestInput from '../../core/RequestInput'
 import Checkbox from '../../core/Checkbox'
 import Button from '../../core/Button'
+
 export default {
   name: 'IndexRequestForm',
-  components: { Button, Checkbox, RequestInput },
+  components: {
+    Button,
+    Checkbox,
+    RequestInput
+  },
   data () {
     return {
       payload: {
         name: '',
         email: '',
         phone: '',
-        message: ''
+        message: '',
+        agreement: false
+      },
+      requestPromise: Promise.resolve()
+    }
+  },
+  computed: {
+    phone: {
+      get () {
+        return this.payload.phone.slice(1)
+      },
+      set (value) {
+        this.payload.phone = (value.match(/[\d+]/g) || [])
+          .join('')
+          .replace('+7', '8')
       }
     }
   },
   methods: {
     sendRequest () {
-      this.$axios.post('/api/mail', this.payload, {
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
+      this.requestPromise = this.$axios.post('/api/mail', this.payload)
+        .then(this.success)
+        .catch(this.error)
+    },
+
+    success () {
+      this.$toasted.success('Ваша заявка успешно отправлена')
+      this.reset()
+    },
+
+    error (error) {
+      return Promise.reject(error.response.data)
+    },
+
+    reset () {
+      this.errors = {}
+      this.payload.name = ''
+      this.payload.phone = ''
+      this.payload.email = ''
+      this.payload.message = ''
+      this.payload.agreement = false
     }
   }
 }
