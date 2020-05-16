@@ -1,27 +1,27 @@
 const nodemailer = require('nodemailer')
 
-const transporter = nodemailer.createTransport({
-  host: 'smtp.yandex.ru',
-  port: 465,
-  secure: true,
-  auth: {
-    user: 'bot@pravo-kons.ru',
-    pass: 'Anastasi12345'
-  }
-})
-
-transporter.verify(function (error) {
-  console.log(error || 'Mailer is ready')
-})
-
 module.exports = (req, res) => {
   let errors
 
   try {
+    const transporter = nodemailer.createTransport({
+      host: 'smtp.yandex.ru',
+      port: 465,
+      secure: true,
+      auth: {
+        user: 'bot@pravo-kons.ru',
+        pass: 'Anastasi12345'
+      }
+    })
+
+    transporter.verify(function (error) {
+      console.log(error || 'Mailer is ready')
+    })
+
     errors = validate(req.body)
 
     if (!Object.keys(errors).length) {
-      sendMail(req.body)
+      sendMail(transporter, req.body)
 
       res.statusCode = 200
       res.json({ success: true })
@@ -35,7 +35,7 @@ module.exports = (req, res) => {
   }
 }
 
-function sendMail ({ name, email, phone, message }) {
+function sendMail (transporter, { name, email, phone, message }) {
   transporter.sendMail({
     from: 'bot@pravo-kons.ru',
     to: 'rassilka@pravo-kons.ru',
