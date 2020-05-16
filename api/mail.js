@@ -6,7 +6,7 @@ module.exports = (req, res) => {
   try {
     const transporter = nodemailer.createTransport({
       host: 'smtp.yandex.ru',
-      port: 25,
+      port: 465,
       auth: {
         user: 'bot@pravo-kons.ru',
         pass: 'Anastasi12345'
@@ -21,9 +21,14 @@ module.exports = (req, res) => {
 
     if (!Object.keys(errors).length) {
       sendMail(transporter, req.body)
-
-      res.statusCode = 200
-      res.json({ success: true })
+        .then(() => {
+          res.statusCode = 200
+          res.json({ success: true })
+        })
+        .catch(() => {
+          res.statusCode = 500
+          res.send('Внутренняя ошибка сервера')
+        })
     } else {
       res.statusCode = 403
       res.json(errors)
@@ -35,16 +40,24 @@ module.exports = (req, res) => {
 }
 
 function sendMail (transporter, { name, email, phone, message }) {
-  transporter.sendMail({
-    from: 'bot@pravo-kons.ru',
-    to: 'rassilka@pravo-kons.ru',
-    subject: 'Новая заявка',
-    text: `
+  return new Promise((resolve, reject) => {
+    transporter.sendMail({
+      from: 'bot@pravo-kons.ru',
+      to: 'rassilka@pravo-kons.ru',
+      subject: 'Новая заявка',
+      text: `
       Имя: ${name}
       Email: ${email || 'Не указан'}
       Телефон: ${phone}
       Сообщение: ${message || 'Не указано'}
     `
+    }, (error, info) => {
+      if (error) {
+        reject(error)
+      } else {
+        resolve(info)
+      }
+    })
   })
 }
 
@@ -63,13 +76,21 @@ function validateName (name) {
 }
 
 function validateEmail (email) {
-  if (!email || !email.length) { return {} }
-  if (!new RegExp(/\S+@\S+\.\S+/).test(email)) { return { email: 'Некорректное значение' } }
+  if (!email || !email.length) {
+    return {}
+  }
+  if (!new RegExp(/\S+@\S+\.\S+/).test(email)) {
+    return { email: 'Некорректное значение' }
+  }
   return {}
 }
 
 function validatePhone (phone) {
-  if (!phone) { return { phone: 'Это поле не может быть пустым' } }
-  if (!new RegExp(/\d{11}/).test(phone)) { return { phone: 'Некорректное значние' } }
+  if (!phone) {
+    return { phone: 'Это поле не может быть пустым' }
+  }
+  if (!new RegExp(/\d{11}/).test(phone)) {
+    return { phone: 'Некорректное значние' }
+  }
   return {}
 }
