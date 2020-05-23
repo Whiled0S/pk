@@ -8,8 +8,8 @@ module.exports = (req, res) => {
       host: 'smtp.yandex.ru',
       port: 465,
       auth: {
-        user: 'bot@pravo-kons.ru',
-        pass: 'Anastasi12345'
+        user: process.env.BOT,
+        pass: process.env.BOT_PASS
       }
     })
 
@@ -42,8 +42,8 @@ module.exports = (req, res) => {
 function sendMail (transporter, { name, email, phone, message }) {
   return new Promise((resolve, reject) => {
     transporter.sendMail({
-      from: 'bot@pravo-kons.ru',
-      to: 'rassilka@pravo-kons.ru',
+      from: process.env.BOT,
+      to: process.env.TARGET_EMAIL,
       subject: 'Новая заявка',
       text: `
       Имя: ${name}
